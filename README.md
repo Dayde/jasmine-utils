@@ -61,7 +61,7 @@ it('should spy selected method', function() {
     }
   };
 
-  jasmine.spyAllExcept(obj, 'method2');
+  jasmine.spyAllExcept(obj, ['method2']);
 });
 ```
 
@@ -81,12 +81,12 @@ it('should spy selected method', function() {
     }
   };
 
-  jasmine.spyEach(obj, ['method1', 'method2');
+  jasmine.spyEach(obj, ['method1', 'method2']);
 });
 ```
 
 - `jasmine.resetAll(object)`
-  - Reset all spy of given object.
+  - Reset all spies of given object.
 
 ```javascript
 it('should reset all methods', function() {
@@ -203,7 +203,7 @@ it('should check if object is true', function() {
 ```
 
 - `toBeFalse()`
-  - Check that a given value is strictly equals to false
+  - Check that a given value is strictly equal to false
   - Error message: 'Expect value (not) to be false'
 
 ```javascript
@@ -275,11 +275,11 @@ it('should check size of string', function() {
 ```
 
 - `toHaveSameLengthAs(array|string)`
-  - Check that a given string has a length equals to length of array or string in parameter
+  - Check that a given string has a length equal to length of array or string in parameter
   - Error message: 'Expect length of actual (not) to be param.length but was actual.length'
 
 ```javascript
-it('should check that length are equals', function() {
+it('should check that length are equal', function() {
   expect('').toHaveSameLengthAs([]);
   expect('foo').toHaveSameLengthAs(['f', 'o', 'o']);
   expect('foo').not.toHaveSameLengthAs(['f', 'o', 'o', 'b', 'a', 'r']);
@@ -322,11 +322,11 @@ it('should check that strings are equal ignoring case', function() {
 ```
 
 - `toStartWith(prefix)`
-  - Check that a given string start with given prefix
+  - Check that a given string starts with given prefix
   - Error message: 'Expect actual (not) to start with prefix'
 
 ```javascript
-it('should check that string start with expected prefix', function() {
+it('should check that string starts with expected prefix', function() {
   expect('foo').toStartWith('f');
   expect('foo').toStartWith('fo');
   expect('foo').toStartWith('foo');
@@ -335,11 +335,11 @@ it('should check that string start with expected prefix', function() {
 ```
 
 - `toEndWith(suffix)`
-  - Check that a given string end with given suffix
+  - Check that a given string ends with given suffix
   - Error message: 'Expect actual (not) to end with suffix'
 
 ```javascript
-it('should check that string end with expected suffix', function() {
+it('should check that string ends with expected suffix', function() {
   expect('foo').toEndWith('o');
   expect('foo').toEndWith('oo');
   expect('foo').toEndWith('foo');
@@ -363,7 +363,7 @@ it('should check if object is a number', function() {
 ```
 
 - `toBeZero()`
-  - Check that a given value is strictly equals to zero.
+  - Check that a given value is strictly equal to zero.
   - Error message: 'Expect actual (not) to be zero'
 
 ```javascript
@@ -417,7 +417,7 @@ it('should check if number is an odd number', function() {
 ```javascript
 it('should check if number is an even number', function() {
   expect(2).toBeEvenNumber();
-  expect(0).not.toBeEvenNumber();
+  expect(0).toBeEvenNumber();
   expect(1).not.toBeEvenNumber();
 });
 ```
@@ -590,7 +590,7 @@ it('should check if a date same day as an other date', function() {
   - Error message: 'Expect date actual (not) to be today'
 
 ```javascript
-it('should check if a date same day as current date', function() {
+it('should check if a date is same day as current date', function() {
   var date1 = new Date();
   var date2 = new Date();
   date2.setDate(date1.getDate() - 1);
@@ -607,7 +607,7 @@ it('should check if a date same day as current date', function() {
   - Error message: 'Expect actual (not) to be an array'
 
 ```javascript
-it('should check if an object is array', function() {
+it('should check if an object is an array', function() {
   expect([]).toBeAnArray();
   expect('123').not.toBeAnArray();
   expect(1).not.toBeAnArray();
@@ -623,7 +623,7 @@ it('should check if an object is array', function() {
   - Error message: 'Expect size of actual (not) to be expectedSize but was array.length'
 
 ```javascript
-it('should check if size of array', function() {
+it('should check if size of given array is equal to expectedSize', function() {
   expect([1, 2, 3]).toHaveSize(3);
   expect([1, 2, 3]).not.toHaveSize(1);
 });
@@ -634,7 +634,7 @@ it('should check if size of array', function() {
   - Error message: 'Expect length of actual (not) to be expectedLength but was array.length'
 
 ```javascript
-it('should check if length of array', function() {
+it('should check if length of given array is equal to expectedLength', function() {
   expect([1, 2, 3]).toHaveLength(3);
   expect([1, 2, 3]).not.toHaveLength(1);
 });
